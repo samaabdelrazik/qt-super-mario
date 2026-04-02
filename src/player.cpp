@@ -28,6 +28,7 @@ void Player::keyPressEvent(QKeyEvent* event) {
 
 void Player::update() {
   velocityY += 1;
+  onGround = false;
   moveBy(0, velocityY);
 
   QList<QGraphicsItem*> items = collidingItems();
@@ -37,5 +38,6 @@ void Player::update() {
     setY(item->y() - boundingRect().height());
 
     velocityY = 0;
+    onGround = true;
   }
 }
