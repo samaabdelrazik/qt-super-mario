@@ -3,6 +3,7 @@
 #include <QGraphicsRectItem>
 #include <QKeyEvent>
 #include <QObject>
+#include <QTimer>
 
 class Player : public QObject, public QGraphicsRectItem {
   Q_OBJECT
@@ -12,7 +13,7 @@ class Player : public QObject, public QGraphicsRectItem {
 
  public slots:
   void updateState();
-
+  void end(QTimer&);
  protected:
   void keyPressEvent(QKeyEvent* event) override;
 

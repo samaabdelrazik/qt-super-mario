@@ -39,6 +39,7 @@ scene.addItem(&ground2);
 
   QTimer timer;
   QObject::connect(&timer, &QTimer::timeout, &player, &Player::updateState);
+  QObject::connect(&timer, &QTimer::timeout,  [&timer, &player](){player.end(timer);});
   QObject::connect(&timer, &QTimer::timeout,
                    [&view, &player]() { view.centerOn(&player); });
   timer.start(33);
